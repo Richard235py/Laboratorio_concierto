@@ -2,18 +2,23 @@
 public class Main {
     public static void main(String[] args) {
         Persona persona = new Persona();
-        Tarjeta tarjeta = new Tarjeta();
+        Tarjeta tarjeta = new Tarjeta(12345);
         Venta venta = new Venta();
         Concierto concierto = new Concierto();
-        Zona zona = new Zona();
-        Entrada entrada = new Entrada();
+        Zona zona = new Zona("Zona A", 5, 50);
+        Entrada entrada = new Entrada(1);
 
-        persona.comprar();
-        venta.anular();
+        persona.registrarTarjeta(tarjeta);
+        persona.comprar(venta);
+        persona.anularVenta(venta);
+        persona.eliminarTarjeta(tarjeta);
+
         concierto.agregarZona("Zona A");
+        concierto.eliminarZona("Zona A");
+
         zona.generarEntradas();
-        entrada.vender();
-        
-        System.out.println("El proyecto está funcionando correctamente.");
+        zona.mostrarEntrada();
+        zona.venderEntrada(1);
+        entrada.liberar();
     }
 }

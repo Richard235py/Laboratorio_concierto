@@ -5,7 +5,11 @@ public class Tarjeta {
     private String fecha;
     private int CVV;
 
-    public void method() {
-        // Define method logic here
+    public Tarjeta(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return numero;
     }
 }
